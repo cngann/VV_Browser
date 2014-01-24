@@ -18,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+
+    // Remove and disable all URL Cache, but doesn't seem to affect the memory
+    NSURLCache *cngCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
+    [NSURLCache setSharedURLCache:cngCache];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *udefURL = [defaults stringForKey:@"vv_url"];
     NSLog(@"URL is %@", udefURL);
@@ -27,8 +34,10 @@
     } else {
         [self loadRequestFromString:@"http://cnn.com"];
     }
+    
     _webView.delegate = (id)self;
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Reload Page"];
     [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [_webView.scrollView addSubview:refreshControl];
 }
@@ -53,6 +62,7 @@
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     [_webView loadRequest:requestObj];
+    
     [refresh endRefreshing];
 }
 
