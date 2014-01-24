@@ -34,6 +34,16 @@
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Reload Page"];
     [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [_webView.scrollView addSubview:refreshControl];
+
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self  action:@selector(swipeRightAction:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeRight.delegate = (id)self;
+    [_webView addGestureRecognizer:swipeRight];
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftAction:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    swipeLeft.delegate = (id)self;
+    [_webView addGestureRecognizer:swipeLeft];
     
 }
 
@@ -44,6 +54,16 @@
                    delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     infoMessage.alertViewStyle = UIAlertViewStyleDefault;
     [infoMessage show];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    if ([requestString hasPrefix:@"ios-log:"]) {
+        NSString* logString = [[requestString componentsSeparatedByString:@":#iOS#"] objectAtIndex:1];
+        NSLog(@"UIWebView console: %@", logString);
+        return NO;
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,4 +87,22 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (void)swipeRightAction:(id)ignored
+{
+    NSLog(@"Swipe Right");
+    [_webView stringByEvaluatingJavaScriptFromString:@"DoSwipeRight();"];
+}
+
+- (void)swipeLeftAction:(id)ignored
+{
+    NSLog(@"Swipe Left");
+    [_webView stringByEvaluatingJavaScriptFromString:@"DoSwipeLeft();"];
+}
+
 @end
