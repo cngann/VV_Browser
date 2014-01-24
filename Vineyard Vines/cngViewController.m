@@ -62,13 +62,13 @@
     // Clear the Web Cache
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
-    NSString *fullURL = _webView.request.URL.absoluteString;
-    NSURL *url = [NSURL URLWithString:fullURL];
+    //NSString *fullURL = _webView.request.URL.absoluteString;
+    //NSURL *url = [NSURL URLWithString:fullURL];
 
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
+    //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
 
-    [_webView loadRequest:requestObj];
-    
+    //[_webView loadRequest:requestObj];
+    [_webView reload];
     [refresh endRefreshing];
 }
 
