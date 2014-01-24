@@ -19,7 +19,10 @@
     [super viewDidLoad];
     [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     [self loadRequestFromString:@"http://cnn.com"];
-	// Do any additional setup after loading the view, typically from a nib.
+    _webView.delegate = (id)self;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [_webView.scrollView addSubview:refreshControl];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,6 +34,13 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
+}
+-(void)handleRefresh:(UIRefreshControl *)refresh {
+    NSString *fullURL = _webView.request.URL.absoluteString;
+    NSURL *url = [NSURL URLWithString:fullURL];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [_webView loadRequest:requestObj];
+    [refresh endRefreshing];
 }
 
 - (BOOL)prefersStatusBarHidden {
