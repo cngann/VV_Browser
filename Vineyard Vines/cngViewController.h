@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "cngURLCache.h"
+
 @interface cngViewController : UIViewController
 
 @end

@@ -12,6 +12,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
+    // Remove and disable URL Cache
+    NSURLCache *cngCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
+    [NSURLCache setSharedURLCache:cngCache];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+
+    
     // Set the application defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:@"http://www.cngann.com/" forKey:@"vv_url"];

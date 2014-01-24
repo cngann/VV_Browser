@@ -18,28 +18,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-
-    // Remove and disable all URL Cache, but doesn't seem to affect the memory
-    NSURLCache *cngCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
-    [NSURLCache setSharedURLCache:cngCache];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-
     
+    // Get URL From Settings Panel
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *udefURL = [defaults stringForKey:@"vv_url"];
-    NSLog(@"URL is %@", udefURL);
-    NSLog(@"%@", [defaults dictionaryRepresentation]);
     if (udefURL) {
         [self loadRequestFromString:udefURL];
     } else {
-        [self loadRequestFromString:@"http://cnn.com"];
+        [self loadRequestFromString:@"http://cngann.com"];
     }
-    
     _webView.delegate = (id)self;
+    
+    // Add Reload Handler
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Reload Page"];
     [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [_webView.scrollView addSubview:refreshControl];
+    
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    UIAlertView *infoMessage;
+    infoMessage = [[UIAlertView alloc]
+                   initWithTitle:@"Whoops!" message:@"There was a problem connecting to the Clienteling Application.  Please check your internet connection and try again."
+                   delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    infoMessage.alertViewStyle = UIAlertViewStyleDefault;
+    [infoMessage show];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,18 +53,20 @@
 
 - (void)loadRequestFromString:(NSString*)urlString {
     NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     [self.webView loadRequest:urlRequest];
 }
 
 - (void)handleRefresh:(UIRefreshControl *)refresh {
-    // Clear the Web Cache
 
+    // Clear the Web Cache
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
     NSString *fullURL = _webView.request.URL.absoluteString;
     NSURL *url = [NSURL URLWithString:fullURL];
+
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
+
     [_webView loadRequest:requestObj];
     
     [refresh endRefreshing];

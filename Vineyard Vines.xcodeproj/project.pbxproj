@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27C2831618925E0D00B9E150 /* cngWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C2831518925E0D00B9E150 /* cngWebView.m */; };
 		833671631891FA7C00B6766E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833671621891FA7C00B6766E /* Foundation.framework */; };
 		833671651891FA7C00B6766E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833671641891FA7C00B6766E /* CoreGraphics.framework */; };
 		833671671891FA7C00B6766E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833671661891FA7C00B6766E /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27C2831418925E0D00B9E150 /* cngWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cngWebView.h; path = ../cngWebView.h; sourceTree = "<group>"; };
+		27C2831518925E0D00B9E150 /* cngWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cngWebView.m; path = ../cngWebView.m; sourceTree = "<group>"; };
 		8336715F1891FA7C00B6766E /* Vineyard Vines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vineyard Vines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		833671621891FA7C00B6766E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		833671641891FA7C00B6766E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,6 +119,8 @@
 		833671681891FA7C00B6766E /* Vineyard Vines */ = {
 			isa = PBXGroup;
 			children = (
+				27C2831418925E0D00B9E150 /* cngWebView.h */,
+				27C2831518925E0D00B9E150 /* cngWebView.m */,
 				833671711891FA7C00B6766E /* cngAppDelegate.h */,
 				833671721891FA7C00B6766E /* cngAppDelegate.m */,
 				833671741891FA7C00B6766E /* Main_iPhone.storyboard */,
@@ -264,6 +269,7 @@
 				8336717C1891FA7C00B6766E /* cngViewController.m in Sources */,
 				8336716F1891FA7C00B6766E /* main.m in Sources */,
 				833671731891FA7C00B6766E /* cngAppDelegate.m in Sources */,
+				27C2831618925E0D00B9E150 /* cngWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
