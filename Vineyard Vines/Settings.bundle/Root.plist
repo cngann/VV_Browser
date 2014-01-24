@@ -10,7 +10,7 @@
 			<key>Title</key>
 			<string>URL</string>
 			<key>Key</key>
-			<string>URL</string>
+			<string>vv_url</string>
 			<key>KeyboardType</key>
 			<string>URL</string>
 			<key>DefaultValue</key>

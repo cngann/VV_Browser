@@ -11,7 +11,19 @@
 @implementation cngAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
+    // Clear the Web Cache
+    // Remove and disable all URL Cache, but doesn't seem to affect the memory
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+    
+    // Set the application defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:@"http://www.cngann.com/" forKey:@"vv_url"];
+    [defaults registerDefaults:appDefaults];
+    [defaults synchronize];
+    
     // Override point for customization after application launch.
     return YES;
 }

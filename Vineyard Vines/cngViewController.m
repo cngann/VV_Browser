@@ -19,9 +19,9 @@
     [super viewDidLoad];
     [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *udefURL = [defaults stringForKey:@"name_preference"];
+    NSString *udefURL = [defaults stringForKey:@"vv_url"];
     NSLog(@"URL is %@", udefURL);
-NSLog(@"%@", [defaults dictionaryRepresentation]);
+    NSLog(@"%@", [defaults dictionaryRepresentation]);
     if (udefURL) {
         [self loadRequestFromString:udefURL];
     } else {
@@ -45,9 +45,13 @@ NSLog(@"%@", [defaults dictionaryRepresentation]);
 }
 
 - (void)handleRefresh:(UIRefreshControl *)refresh {
+    // Clear the Web Cache
+
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
     NSString *fullURL = _webView.request.URL.absoluteString;
     NSURL *url = [NSURL URLWithString:fullURL];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     [_webView loadRequest:requestObj];
     [refresh endRefreshing];
 }

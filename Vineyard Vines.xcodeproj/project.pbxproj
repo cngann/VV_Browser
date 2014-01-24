@@ -488,6 +488,7 @@
 				833671961891FA7C00B6766E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		833671971891FA7C00B6766E /* Build configuration list for PBXNativeTarget "Vineyard VinesTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +497,7 @@
 				833671991891FA7C00B6766E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
