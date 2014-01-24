@@ -13,18 +13,26 @@
                         <viewControllerLayoutGuide type="bottom" id="wWe-jh-hsE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtv-ki-MkZ">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtv-ki-MkZ">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wtv-ki-MkZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="BM2-i7-QLS"/>
+                            <constraint firstAttribute="trailing" secondItem="wtv-ki-MkZ" secondAttribute="trailing" id="pdc-cf-fci"/>
+                            <constraint firstAttribute="bottom" secondItem="wtv-ki-MkZ" secondAttribute="bottom" id="qcd-8T-SWG"/>
+                            <constraint firstItem="wtv-ki-MkZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zrR-YH-7RX"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="webView" destination="wtv-ki-MkZ" id="zkE-GU-kSl"/>
