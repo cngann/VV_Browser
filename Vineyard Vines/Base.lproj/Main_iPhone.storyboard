@@ -13,17 +13,26 @@
                         <viewControllerLayoutGuide type="bottom" id="B7W-a0-ODd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-rr-Rs3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-rr-Rs3">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oNG-rr-Rs3" secondAttribute="trailing" id="4dR-Ib-xL1"/>
+                            <constraint firstItem="oNG-rr-Rs3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bAU-HA-TTX"/>
+                            <constraint firstItem="oNG-rr-Rs3" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="pvL-oh-ana"/>
+                            <constraint firstAttribute="bottom" secondItem="oNG-rr-Rs3" secondAttribute="bottom" id="vCW-hB-7c6"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="webView" destination="oNG-rr-Rs3" id="GEK-GC-hfZ"/>
                     </connections>
