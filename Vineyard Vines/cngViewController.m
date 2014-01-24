@@ -35,7 +35,8 @@
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
 }
--(void)handleRefresh:(UIRefreshControl *)refresh {
+
+- (void)handleRefresh:(UIRefreshControl *)refresh {
     NSString *fullURL = _webView.request.URL.absoluteString;
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
