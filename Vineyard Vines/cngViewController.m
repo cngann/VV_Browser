@@ -18,7 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-    [self loadRequestFromString:@"http://cnn.com"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *udefURL = [defaults stringForKey:@"URL"];
+    NSLog(@"URL is %@", udefURL);
+NSLog(@"%@", [defaults dictionaryRepresentation]);
+    if (udefURL) {
+        [self loadRequestFromString:udefURL];
+    } else {
+        [self loadRequestFromString:@"http://cnn.com"];
+    }
     _webView.delegate = (id)self;
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
