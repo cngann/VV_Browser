@@ -19,7 +19,7 @@
     [super viewDidLoad];
     [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *udefURL = [defaults stringForKey:@"URL"];
+    NSString *udefURL = [defaults stringForKey:@"name_preference"];
     NSLog(@"URL is %@", udefURL);
 NSLog(@"%@", [defaults dictionaryRepresentation]);
     if (udefURL) {

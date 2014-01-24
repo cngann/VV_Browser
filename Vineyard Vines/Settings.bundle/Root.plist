@@ -5,22 +5,20 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-			<key>DefaultValue</key>
-			<string>http://cngann.com</string>
-			<key>IsSecure</key>
-			<false/>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>URL</string>
 			<key>Key</key>
 			<string>URL</string>
 			<key>KeyboardType</key>
 			<string>URL</string>
-			<key>Title</key>
-			<string>URL</string>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>http://cngann.com</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
