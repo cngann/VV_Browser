@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadRequestFromString:@"http://cngann.com"];
+    [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    [self loadRequestFromString:@"http://cnn.com"];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -32,4 +33,7 @@
     [self.webView loadRequest:urlRequest];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 @end
