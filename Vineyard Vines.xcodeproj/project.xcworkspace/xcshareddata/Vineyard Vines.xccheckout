@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2F8A4AC0-F2EF-4F16-9EFD-FCFC9758F0B5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Vineyard Vines</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>436B7B66-D008-460E-93E2-94579C60D4D9</key>
+		<string>https://github.com/cngann/VV_Browser.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Vineyard Vines.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>436B7B66-D008-460E-93E2-94579C60D4D9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cngann/VV_Browser.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>436B7B66-D008-460E-93E2-94579C60D4D9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>436B7B66-D008-460E-93E2-94579C60D4D9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VV_Browser</string>
+		</dict>
+	</array>
+</dict>
+</plist>
