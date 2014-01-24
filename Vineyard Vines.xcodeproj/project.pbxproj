@@ -22,6 +22,7 @@
 		833671871891FA7C00B6766E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833671661891FA7C00B6766E /* UIKit.framework */; };
 		8336718F1891FA7C00B6766E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8336718D1891FA7C00B6766E /* InfoPlist.strings */; };
 		833671911891FA7C00B6766E /* Vineyard_VinesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 833671901891FA7C00B6766E /* Vineyard_VinesTests.m */; };
+		8336719B1892128400B6766E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8336719A1892128400B6766E /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8336718C1891FA7C00B6766E /* Vineyard VinesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vineyard VinesTests-Info.plist"; sourceTree = "<group>"; };
 		8336718E1891FA7C00B6766E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		833671901891FA7C00B6766E /* Vineyard_VinesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vineyard_VinesTests.m; sourceTree = "<group>"; };
+		8336719A1892128400B6766E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				833671721891FA7C00B6766E /* cngAppDelegate.m */,
 				833671741891FA7C00B6766E /* Main_iPhone.storyboard */,
 				833671771891FA7C00B6766E /* Main_iPad.storyboard */,
+				8336719A1892128400B6766E /* Settings.bundle */,
 				8336717A1891FA7C00B6766E /* cngViewController.h */,
 				8336717B1891FA7C00B6766E /* cngViewController.m */,
 				8336717D1891FA7C00B6766E /* Images.xcassets */,
@@ -237,6 +240,7 @@
 			files = (
 				833671791891FA7C00B6766E /* Main_iPad.storyboard in Resources */,
 				8336717E1891FA7C00B6766E /* Images.xcassets in Resources */,
+				8336719B1892128400B6766E /* Settings.bundle in Resources */,
 				833671761891FA7C00B6766E /* Main_iPhone.storyboard in Resources */,
 				8336716D1891FA7C00B6766E /* InfoPlist.strings in Resources */,
 			);
