@@ -23,6 +23,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *udefURL = [defaults stringForKey:@"vv_url"];
     if (udefURL) {
+        NSLog(@"Loading url: %@", udefURL );
         [self loadRequestFromString:udefURL];
     } else {
         [self loadRequestFromString:@"http://cngann.com"];
