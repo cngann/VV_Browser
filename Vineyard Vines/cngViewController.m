@@ -101,16 +101,18 @@
     return YES;
 }
 
+// Swipe Right
 - (void)swipeRightAction:(id)ignored
 {
-    NSLog(@"Swipe Right");
-    [_webView stringByEvaluatingJavaScriptFromString:@"DoSwipeRight();"];
+    // Call Browser's swipe functionality
+    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.right();"];
 }
 
+// Swipe Left
 - (void)swipeLeftAction:(id)ignored
 {
-    NSLog(@"Swipe Left");
-    [_webView stringByEvaluatingJavaScriptFromString:@"DoSwipeLeft();"];
+    // Call Browser's swipe functionality
+    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.left();"];
 }
 
 @end
