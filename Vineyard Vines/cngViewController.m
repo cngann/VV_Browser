@@ -46,6 +46,21 @@
     swipeLeft.delegate = (id)self;
     [_webView addGestureRecognizer:swipeLeft];
     
+    UIScreenEdgePanGestureRecognizer *panRight = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(panRightAction:)];
+    [panRight setEdges:UIRectEdgeLeft];
+    panRight.delegate = (id)self;
+    [_webView addGestureRecognizer:panRight];
+    
+    // Cannot have more than one Pan direction recognizer in iOS 7.0.4
+    // Known and Recognized bug
+    
+    /*
+    UIScreenEdgePanGestureRecognizer *panLeft = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(panLeftAction:)];
+    [panLeft setEdges:UIRectEdgeRight];
+    panLeft.delegate = (id)self;
+    [_webView addGestureRecognizer:panLeft];
+    */
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -98,14 +113,30 @@
 - (void)swipeRightAction:(id)ignored
 {
     // Call Browser's swipe functionality
-    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.right();"];
+    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.run('right');"];
 }
 
 // Swipe Left
 - (void)swipeLeftAction:(id)ignored
 {
     // Call Browser's swipe functionality
-    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.left();"];
+    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.run('left');"];
 }
+
+// Pan Right
+- (void)panRightAction:(id)ignored
+{
+    // Call Browser's swipe far left functionality
+    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.run('panRight');"];
+}
+
+// Pan Left
+/*
+- (void)panLeftAction:(id)ignored
+{
+    // Call Browser's swipe far left functionality
+    [_webView stringByEvaluatingJavaScriptFromString:@"swipe.run('panLeft');"];
+}
+*/
 
 @end
