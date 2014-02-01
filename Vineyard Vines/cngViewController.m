@@ -41,6 +41,7 @@
     swipeRight.delegate = (id)self;
     [_webView addGestureRecognizer:swipeRight];
     
+    
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftAction:)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     swipeLeft.delegate = (id)self;
