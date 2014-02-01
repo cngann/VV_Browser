@@ -79,6 +79,15 @@
         NSLog(@"UIWebView console: %@", logString);
         return NO;
     }
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *udefURL = [defaults stringForKey:@"vv_url"];
+        NSRange range = [requestString rangeOfString:udefURL];
+        if (range.length == 0) {
+            [[UIApplication sharedApplication] openURL:[request URL]];
+            return NO;
+        }
+    }
     return YES;
 }
 
